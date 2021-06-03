@@ -13,11 +13,13 @@ public class RentController {
     public String hello() throws IOException {
         List command = new ArrayList();
         command.add("mosquitto_pub");
+        command.add("-h");
+        command.add("192.168.0.166");
         command.add("-d");
         command.add("-t");
         command.add("hello/world");
         command.add("-m");
-        command.add("hihihi");
+        command.add("on server");
         new ProcessBuilder( command).start();
         return "HelloWorld";
     }
